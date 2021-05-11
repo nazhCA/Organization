@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <!-- <a mat-button [routerLink]="['/org-registration']"]>
+            Oraganization registration
+        </a> -->
+        <button mat-button [routerLink]="['/org-registration']">
+            <mat-icon>input</mat-icon>
+            Organization registration&nbsp;
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- <nav>
+    <div class="">
+        <mat-card matRipple [routerLink]=" ['/org-registration' ] ">
+            <div>Register Organization</div>
+        </mat-card>
+    </div>
+
+    <div class="">
+        <mat-card>
+            <div>List Organizations</div>
+        </mat-card>
+    </div>
+</nav> -->
+
+<app-container>
+    <app-org-card *ngFor="let item of orgList | async" [org]="item"></app-org-card>
+    <br>
+</app-container>

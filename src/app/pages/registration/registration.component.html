@@ -1,0 +1,88 @@
+<div class="centering">
+    <mat-card class="reg-card">
+        <form *ngIf="form" [formGroup]='form' >
+            <h2>Registration</h2>
+            <mat-form-field class="width-full">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="nickname" placeholder="Ex. World Health Organization" required formControlName="name">
+            </mat-form-field>
+            <mat-form-field formArrayName="identifier" class="width-full">
+                <div formGroupName="1">
+                    <mat-label>Unique name</mat-label>
+                    <input  type="text" matInput formControlName="value" placeholder="Unique name">
+                </div>
+          </mat-form-field>
+            <mat-checkbox class="max-width" formControlName="active">Active</mat-checkbox>
+            <mat-form-field class="width-full m-top" appearance="fill" >
+                <mat-label>Type of organization</mat-label>
+                <mat-select matInput formControlName="type">
+                    <mat-option *ngFor="let type of types" [value]="type.value">{{type.viewValue}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="width-full" >
+                <mat-label>Known aliases</mat-label>
+                <mat-chip-list #chipList aria-label="aliases"  >
+                  <mat-chip *ngFor="let alias of aliases; let i = index" [selectable]="selectable"
+                           [removable]="removable" (removed)="remove(alias)" >
+                    {{alias}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="New alias..."
+                         [matChipInputFor]="chipList"
+                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                         [matChipInputAddOnBlur]="addOnBlur"
+                         (matChipInputTokenEnd)="add($event)"
+                         formArrayName="aliases">
+                </mat-chip-list>
+              </mat-form-field> -->
+
+              <mat-card class="margin-bottom">
+                <mat-card-content>
+                  <table class="max-width one-row" cellspacing="0" formArrayName="telecom">
+                    <tr>
+                      <td formGroupName="0" class="padding-r-150">
+                        <mat-form-field class="max-width">
+                          <mat-label>E-mail</mat-label>
+                          <input type="email" name="email"  matInput formControlName="value">
+                        </mat-form-field>
+                      </td>
+                      <td formGroupName="1" class="padding-l-150">
+                        <mat-form-field class="max-width">
+                          <mat-label>Telephone</mat-label>
+                          <input type="tel" formControlName="value" matInput>
+                        </mat-form-field>
+                      </td>
+                    </tr>
+                  </table>
+                </mat-card-content>
+              </mat-card>
+
+              
+
+              <mat-card class="margin-bottom" formArrayName="address">
+                <mat-card-header>
+                  <mat-card-title>Lakcímek</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <button mat-raised-button color="secondary" class="max-width margin-bottom" (click)="addAddress()">
+                    <mat-icon>add</mat-icon>
+                    Cím
+                  </button>
+                  <span *ngFor="let item of getAddress.controls; let i = index" class="max-width" style="display: flex;">
+                    <mat-form-field [formGroupName]="i" style="flex: 1 1;">
+                      <mat-label>Lakcím {{i + 1}}.</mat-label>
+                      <input type="text" name="address" formControlName="text" matInput>
+                    </mat-form-field>
+                    <button mat-icon-button color="warn"  (click)="removeAddress(i)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </span>
+                </mat-card-content>
+              </mat-card>            
+            <br>
+            <button (click)="registration()" [disabled]="form.invalid" mat-raised-button color="primary" class="max-width" >Submit</button>
+            <button mat-raised-button color="secondary" style="float: right;" [routerLink] = "[ '/home' ]">Back</button>
+        </form>
+    </mat-card>
+</div>

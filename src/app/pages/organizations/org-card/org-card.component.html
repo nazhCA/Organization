@@ -1,0 +1,29 @@
+<mat-card *ngIf="org">
+    <mat-card-header class="header">
+        <mat-card-title>{{org.name}}</mat-card-title>
+        <div style="float: right;">
+            <button (click)="openDialog(org.identifier[0].value)" mat-flat-button color="primary"> <mat-icon>edit</mat-icon></button>
+            <button (click)="deleteRecord(org)" mat-flat-button color="warn"><mat-icon>delete</mat-icon></button>
+        </div>
+    </mat-card-header>
+    <p style="display: inline-block; margin-left: 15px;">Type: {{org.type}}</p>
+    <section class="card-content">
+        <mat-card-content>
+            <section>
+                <p>Address(es):</p>
+                <ul>
+                    <li *ngFor="let item of org.address">{{item.text}}</li>
+                </ul>
+            </section>
+        </mat-card-content>
+        <mat-card-content>
+            <section>
+                <p>Contact(s):</p>
+                <ul>
+                    <li *ngFor="let item of org.telecom">{{item.value}}</li>
+                </ul>
+            </section>
+        </mat-card-content>
+    </section>
+    
+</mat-card>

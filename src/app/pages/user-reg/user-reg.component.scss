@@ -1,0 +1,18 @@
+.centering {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.reg-card {
+    display: flex;
+    width: 30%;
+}
+
+.max-width {
+    width: 100%;
+}
+.float-right {
+    float: right;
+}

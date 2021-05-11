@@ -1,0 +1,18 @@
+<div class="centering">
+    <mat-card class="reg-card">
+        <form *ngIf="form" [formGroup]="form">
+            <h2>Login</h2>
+            <mat-form-field class="max-width">
+                <mat-label>Email</mat-label>
+                <input matInput required type="email" name="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field class="max-width">
+                <mat-label>Password</mat-label>
+                <input matInput required type="password" name="password" formControlName="password">
+            </mat-form-field>
+
+            <button (click)="loginUser()" [disabled]="form.invalid" mat-raised-button color="primary">Login</button>
+            <button class="float-right" mat-raised-button color="secondary" [routerLink]="[ '/registration' ]">Registration</button>
+        </form>
+    </mat-card>
+</div>

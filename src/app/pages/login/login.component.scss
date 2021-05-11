@@ -1,0 +1,20 @@
+.centering {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.reg-card {
+    display: flex;
+    width: 30%;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.max-width {
+    width: 100%;
+}
+.float-right {
+    float: right;
+}

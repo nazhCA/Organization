@@ -1,0 +1,38 @@
+.asd {
+    height: 500px;
+}
+.centering {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;    
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+  }
+.m-top {
+    margin-top: 20px;
+}
+  
+  .width-full {
+      width: 100%;
+  }
+.one-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.padding-r-150 {    
+    padding-right: 50px;
+}
+
+.padding-l-150 {
+    padding-left: 15px;
+}
+
+@media screen {
+    
+}
